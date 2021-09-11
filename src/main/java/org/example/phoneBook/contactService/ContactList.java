@@ -27,6 +27,13 @@ public class ContactList {
         contacts.add(contact);
     }
 
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
+    }
 
     @Override
     public String toString() {
@@ -34,7 +41,7 @@ public class ContactList {
         StringBuilder st = new StringBuilder();
         st.append("Your phone book: \n");
         for (int i = 0; i < contacts.size(); i++) {
-            st.append(i + 1).append(".").append(contacts.get(i).getName()).append(" : ").append(contacts.get(i).getPhone()).append("\n");
+            st.append(i + 1).append(". ").append(contacts.get(i).getName()).append(" : ").append(contacts.get(i).getPhone()).append("\n");
         }
         st.append("End");
         return st.toString();

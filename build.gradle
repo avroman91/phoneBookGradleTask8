@@ -21,8 +21,6 @@ test {
 jar {
     archiveName 'PhoneBook.jar'
     manifest {
-        attributes(
-                "Main-Class": "org.example.phoneBook.Main"
-        )
+        attributes 'Main-Class': 'org.example.phoneBook.Main'
     }
 }

@@ -1,5 +1,7 @@
 package org.example.phoneBook.contactService;
 
+import java.util.List;
+
 public interface ContactsService {
 
 
@@ -9,8 +11,8 @@ public interface ContactsService {
 
     void add(Contact contact);
 
-     void saveBytesToFile();
-     void saveToCSV();
+    void save(ContactList contacts);
 
+    ContactList load();
 
 }

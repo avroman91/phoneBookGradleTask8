@@ -1,6 +1,8 @@
 package org.example.phoneBook.contactService;
 
-public class Contact {
+import java.io.Serializable;
+
+public class Contact implements Serializable {
     private String name;
     private String phone;
 

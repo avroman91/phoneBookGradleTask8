@@ -9,5 +9,8 @@ public interface ContactsService {
 
     void add(Contact contact);
 
+     void saveBytesToFile();
+     void saveToCSV();
+
 
 }

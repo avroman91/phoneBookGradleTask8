@@ -17,3 +17,12 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    archiveName 'PhoneBook.jar'
+    manifest {
+        attributes(
+                "Main-Class": "org.example.phoneBook.Main"
+        )
+    }
+}

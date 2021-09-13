@@ -1,7 +1,6 @@
 package org.example.phoneBook.contactService;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ContactList {
 
     private List<Contact> contacts = new ArrayList<Contact>();

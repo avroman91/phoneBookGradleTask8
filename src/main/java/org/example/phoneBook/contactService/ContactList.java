@@ -1,18 +1,20 @@
 package org.example.phoneBook.contactService;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class ContactList {
 
-    private List<Contact> contacts = new ArrayList();
+    private List<Contact> contacts = new ArrayList<Contact>();
 
     public Contact get(int index) {
         return contacts.get(index);
-    }
-
-    public void set(int index, Contact contact) {
-        contacts.set(index, contact);
     }
 
     public int size() {
@@ -27,13 +29,7 @@ public class ContactList {
         contacts.add(contact);
     }
 
-    public List<Contact> getContacts() {
-        return contacts;
-    }
 
-    public void setContacts(List<Contact> contacts) {
-        this.contacts = contacts;
-    }
 
     @Override
     public String toString() {

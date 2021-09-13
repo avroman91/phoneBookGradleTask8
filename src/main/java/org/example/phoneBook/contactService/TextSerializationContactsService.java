@@ -7,8 +7,6 @@ public class TextSerializationContactsService extends SerializationHelperAbstrac
 
     private ContactList cache = null;
 
-    private File file;
-
     @Override
     public void save(ContactList contacts) {
         try(BufferedWriter fileWriter = new BufferedWriter(new FileWriter("Contacts.text"))) {
@@ -24,11 +22,12 @@ public class TextSerializationContactsService extends SerializationHelperAbstrac
     public ContactList load() {
         if(cache == null) {
             try (BufferedReader fileReader = new BufferedReader(new FileReader("Contacts.text"))) {
-                cache.setContacts(fileReader.lines().map(s->new Contact( s.split(" ")[2],s.split(" ")[4])).collect(Collectors.toList()));
+                cache = new ContactList((fileReader.lines().filter(s->s.split(" ").length==4).map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList())));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println(cache);
         return cache;
     }
 }

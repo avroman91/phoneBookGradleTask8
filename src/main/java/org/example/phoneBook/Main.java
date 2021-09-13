@@ -13,32 +13,25 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-//        List<MenuAction> actions = new ArrayList<>();
-//        InMemoryContactsService memory = new InMemoryContactsService();
-//        TextSerializationContactsService memory2 = new TextSerializationContactsService();
-//        actions.add(new ReadAllMenuAction(memory));
-//        actions.add(new AddContactMenuAction(memory2));
-//        actions.add(new RemoveContactMenuAction(memory));
-//        actions.add(new FindContactMenuAction(memory));
-//        Menu menu = new Menu(actions);
-//        menu.run();
+        List<MenuAction> actions = new ArrayList<>();
+        InMemoryContactsService memory = new InMemoryContactsService();
+        TextSerializationContactsService memory2 = new TextSerializationContactsService();
+        actions.add(new ReadAllMenuAction(memory));
+        actions.add(new AddContactMenuAction(memory2));
+        actions.add(new RemoveContactMenuAction(memory));
+        actions.add(new FindContactMenuAction(memory));
+        Menu menu = new Menu(actions);
+        menu.run();
 
 
-        List<Contact> contacts = null;
-        try (BufferedReader fileReader = new BufferedReader(new FileReader("Contacts.text"))) {
-            contacts = fileReader.lines().map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(contacts);
-
-
+//        List<Contact> contacts = null;
 //        try (BufferedReader fileReader = new BufferedReader(new FileReader("Contacts.text"))) {
-//            List<Contact> strings = fileReader.lines().skip().map(s -> new Contact(s.split(" ")[0],s.split(" ")[1])).collect(Collectors.toList());
-//            System.out.println(strings);
+//            contacts = fileReader.lines().filter(s->s.split(" ").length==4).map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList());
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+//
+//        System.out.println(contacts);
+
     }
 }

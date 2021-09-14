@@ -25,7 +25,7 @@ public class AddContactMenuAction implements MenuAction {
         String phone = scan.nextLine();
         Contact newContact = new Contact(name, phone);
         contactsService.add(newContact);
-        contactsService.save(contactsService.getAll());
+        contactsService.save();
 
     }
 

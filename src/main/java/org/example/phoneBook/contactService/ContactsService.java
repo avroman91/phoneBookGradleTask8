@@ -11,7 +11,7 @@ public interface ContactsService {
 
     void add(Contact contact);
 
-    void save(ContactList contacts);
+    void save();
 
     public ContactList findByName(String name);
 

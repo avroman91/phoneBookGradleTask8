@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 public class TextSerializationContactsService extends SerializationHelperAbstractClass {
 
     @Override
-    public void save(ContactList contacts) {
+    public void save() {
         try(BufferedWriter fileWriter = new BufferedWriter(new FileWriter("Contacts.text"))) {
-            fileWriter.write(contacts.toString());
+            fileWriter.write(cache.toString());
             fileWriter.flush();
         } catch (IOException e) {
             e.printStackTrace();

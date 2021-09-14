@@ -32,7 +32,7 @@ public class InMemoryContactsService implements ContactsService {
     }
 
     @Override
-    public void save(ContactList contact) {
+    public void save() {
 
     }
 

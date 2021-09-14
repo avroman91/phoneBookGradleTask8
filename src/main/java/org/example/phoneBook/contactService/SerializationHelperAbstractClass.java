@@ -23,7 +23,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
         } else {
             cache = load();
             cache.remove(index);
-            save(cache);
+            save();
         }
     }
 
@@ -31,7 +31,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
     public void add(Contact contact) {
         cache = load();
         cache.add(contact);
-        save(cache);
+        save();
     }
 
     @Override

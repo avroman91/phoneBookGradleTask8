@@ -14,13 +14,11 @@ import java.util.stream.Collectors;
 public class Main {
     public static void main(String[] args) {
         List<MenuAction> actions = new ArrayList<>();
-        InMemoryContactsService memory = new InMemoryContactsService();
-        TextSerializationContactsService memory2 = new TextSerializationContactsService();
-        actions.add(new ReadAllMenuAction(memory));
-        actions.add(new AddContactMenuAction(memory2));
-        actions.add(new RemoveContactMenuAction(memory));
-        actions.add(new FindContactMenuAction(memory));
         Menu menu = new Menu(actions);
+        actions.add(new AddContactMenuAction(menu.chooseType()));
+        actions.add(new ReadAllMenuAction(menu.chooseType()));
+        actions.add(new RemoveContactMenuAction(menu.chooseType()));
+        actions.add(new FindContactMenuAction(menu.chooseType()));
         menu.run();
 
 

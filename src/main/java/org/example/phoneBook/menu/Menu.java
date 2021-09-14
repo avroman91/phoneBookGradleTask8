@@ -1,5 +1,10 @@
 package org.example.phoneBook.menu;
 
+import org.example.phoneBook.contactService.ByteSerializationContactsService;
+import org.example.phoneBook.contactService.ContactsService;
+import org.example.phoneBook.contactService.InMemoryContactsService;
+import org.example.phoneBook.contactService.TextSerializationContactsService;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,6 +43,23 @@ public class Menu {
                 break;
             }
             actions.get(choice).doAction(scanner);
+        }
+    }
+
+    public ContactsService chooseType() {
+        System.out.print("Which method of serialization you would like to use ?: ");
+        System.out.print("Type number of method to choose : ");
+        System.out.println("1 - Keep data in memory (InMemoryContactService); \n " +
+                "2 - Keep data in text file (TextSerializationCotactService); \n " +
+                "3 - Keep data in object file (ObjectSerializationContactService;");
+        while (true) {
+            int choise = scanner.nextInt();
+            switch (choise) {
+                case 1: return new InMemoryContactsService();
+                case 2: return new TextSerializationContactsService();
+                case 3: return new ByteSerializationContactsService();
+                default: break;
+            }
         }
     }
 

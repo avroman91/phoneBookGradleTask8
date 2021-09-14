@@ -20,8 +20,8 @@ public class ByteSerializationContactsService extends SerializationHelperAbstrac
 
     @Override
     public ContactList load() {
-        if (cache == null){
-            try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Contacts.obj"))) {
+        if (cache == null) {
+            try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Contacts.obj"))) {
                 cache = (ContactList) objectInputStream.readObject();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

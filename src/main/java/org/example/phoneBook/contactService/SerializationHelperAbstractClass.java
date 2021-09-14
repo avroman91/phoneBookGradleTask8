@@ -4,7 +4,7 @@ import lombok.Data;
 import org.example.phoneBook.utils.ListUtils;
 
 @Data
-public abstract class SerializationHelperAbstractClass implements ContactsService{
+public abstract class SerializationHelperAbstractClass implements ContactsService {
 
     protected ContactList cache = null;
 
@@ -31,7 +31,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
     @Override
     public void add(Contact contact) {
 
-        if(cache == null){
+        if (cache == null) {
             cache = new ContactList();
             cache.add(contact);
         } else {

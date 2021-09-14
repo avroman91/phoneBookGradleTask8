@@ -55,10 +55,14 @@ public class Menu {
         while (true) {
             int choise = scanner.nextInt();
             switch (choise) {
-                case 1: return new InMemoryContactsService();
-                case 2: return new TextSerializationContactsService();
-                case 3: return new ByteSerializationContactsService();
-                default: break;
+                case 1:
+                    return new InMemoryContactsService();
+                case 2:
+                    return new TextSerializationContactsService();
+                case 3:
+                    return new ByteSerializationContactsService();
+                default:
+                    break;
             }
         }
     }

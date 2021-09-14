@@ -28,9 +28,9 @@ public class AddContactMenuAction implements MenuAction {
 
     }
 
-        @Override
-        public String getName () {
-            return "Add new contact";
-        }
-
+    @Override
+    public String getName() {
+        return "Add new contact";
     }
+
+}

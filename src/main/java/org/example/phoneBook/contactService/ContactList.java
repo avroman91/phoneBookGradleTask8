@@ -31,7 +31,6 @@ public class ContactList implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
         if (contacts.size() == 0) return "Phonebook is empty";

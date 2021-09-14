@@ -6,10 +6,10 @@ import java.io.*;
 import java.util.stream.Collectors;
 
 public class TextSerializationContactsService extends SerializationHelperAbstractClass {
-    
+
     @Override
     public void save() {
-        try(BufferedWriter fileWriter = new BufferedWriter(new FileWriter("Contacts.text"))) {
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter("Contacts.text"))) {
             fileWriter.write(cache.toString());
             fileWriter.flush();
         } catch (IOException e) {
@@ -20,9 +20,9 @@ public class TextSerializationContactsService extends SerializationHelperAbstrac
 
     @Override
     public ContactList load() {
-        if(cache == null) {
+        if (cache == null) {
             try (BufferedReader fileReader = new BufferedReader(new FileReader("Contacts.text"))) {
-                cache = new ContactList((fileReader.lines().filter(s->s.split(" ").length==4).map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList())));
+                cache = new ContactList((fileReader.lines().filter(s -> s.split(" ").length == 4).map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList())));
             } catch (IOException e) {
                 e.printStackTrace();
             }

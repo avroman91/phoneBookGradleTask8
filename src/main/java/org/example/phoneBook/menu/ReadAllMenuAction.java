@@ -1,7 +1,6 @@
 package org.example.phoneBook.menu;
 
 import org.example.phoneBook.contactService.ContactsService;
-import org.example.phoneBook.contactService.InMemoryContactsService;
 
 import java.util.Scanner;
 

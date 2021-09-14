@@ -14,9 +14,6 @@ public class AddContactMenuAction implements MenuAction {
         this.contactsService = contactsService;
     }
 
-    private int choose = 0;
-
-
     @Override
     public void doAction(Scanner scan) {
         System.out.print("Enter contact name:  ");

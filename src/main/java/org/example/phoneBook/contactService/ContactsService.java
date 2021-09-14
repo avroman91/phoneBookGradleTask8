@@ -1,6 +1,5 @@
 package org.example.phoneBook.contactService;
 
-import java.util.List;
 
 public interface ContactsService {
 

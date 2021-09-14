@@ -54,6 +54,7 @@ public class Menu {
                 "3 - Keep data in object file;");
         while (true) {
             int choice = scanner.nextInt();
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     return new InMemoryContactsService();

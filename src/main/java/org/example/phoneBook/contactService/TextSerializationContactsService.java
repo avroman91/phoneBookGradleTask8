@@ -5,35 +5,7 @@ import org.example.phoneBook.utils.ListUtils;
 import java.io.*;
 import java.util.stream.Collectors;
 
-public class TextSerializationContactsService implements ContactsService {
-
-    private ContactList cache = null;
-
-    @Override
-    public ContactList getAll() {
-        if (cache == null) cache = load();
-        return cache;
-    }
-
-    @Override
-    public void remove(int index) {
-        if (cache.size() == 0) {
-            System.out.println("Phonebook is empty");
-        } else if (index < 0 || index >= cache.size()) {
-            System.out.println("Incorrect input");
-        } else {
-            cache = load();
-            cache.remove(index);
-            save(cache);
-        }
-    }
-
-    @Override
-    public void add(Contact contact) {
-        cache = load();
-        cache.add(contact);
-        save(cache);
-    }
+public class TextSerializationContactsService extends SerializationHelperAbstractClass {
 
     @Override
     public void save(ContactList contacts) {
@@ -45,11 +17,6 @@ public class TextSerializationContactsService implements ContactsService {
         }
     }
 
-    @Override
-    public ContactList findByName(String name) {
-        if (cache == null) cache = load();
-        return ListUtils.filter(cache, contact -> contact.getName().contains(name));
-    }
 
     @Override
     public ContactList load() {

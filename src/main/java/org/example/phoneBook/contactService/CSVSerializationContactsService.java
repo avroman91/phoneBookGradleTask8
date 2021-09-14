@@ -24,9 +24,9 @@ public class CSVSerializationContactsService extends SerializationHelperAbstract
     @Override
     public ContactList load() {
         if (cache == null) {
-            try(FileReader fileReader = new FileReader("Contacts.csv")) {
+            try (FileReader fileReader = new FileReader("Contacts.csv")) {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                cache = new ContactList (bufferedReader.lines().map(l->l.split(",")).map(a->new Contact(a[0],a[1])).collect(Collectors.toList()));
+                cache = new ContactList(bufferedReader.lines().map(l -> l.split(",")).map(a -> new Contact(a[0], a[1])).collect(Collectors.toList()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

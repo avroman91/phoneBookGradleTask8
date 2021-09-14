@@ -8,6 +8,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
 
     protected ContactList cache = null;
 
+
     @Override
     public ContactList getAll() {
         if (cache == null) cache = load();
@@ -29,8 +30,13 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
 
     @Override
     public void add(Contact contact) {
-        cache = load();
-        cache.add(contact);
+
+        if(cache == null){
+            cache = new ContactList();
+            cache.add(contact);
+        } else {
+            cache.add(contact);
+        }
         save();
     }
 

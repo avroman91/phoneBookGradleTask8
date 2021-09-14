@@ -2,15 +2,18 @@ package org.example.phoneBook.contactService;
 
 
 import java.io.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ByteSerializationContactsService extends SerializationHelperAbstractClass {
 
+    private File file = new File("Contacts.obj");
+
     @Override
     public void save() {
-
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("Contacts.obj"))) {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file))) {
             objectOutputStream.writeObject(cache);
+            objectOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -19,11 +22,11 @@ public class ByteSerializationContactsService extends SerializationHelperAbstrac
 
     @Override
     public ContactList load() {
-        if (cache == null) {
-            try (BufferedReader fileReader = new BufferedReader(new FileReader("Contacts.text"))) {
-                cache = new ContactList((fileReader.lines().filter(s -> s.split(" ").length == 4).map(s -> new Contact(s.split(" ")[1], s.split(" ")[3])).collect(Collectors.toList())));
-            } catch (IOException e) {
-                throw new RuntimeException("There is no such file");
+        if (cache == null){
+            try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
+                cache = (ContactList) objectInputStream.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
         return cache;

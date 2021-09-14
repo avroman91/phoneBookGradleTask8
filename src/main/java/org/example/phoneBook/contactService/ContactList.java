@@ -3,13 +3,14 @@ package org.example.phoneBook.contactService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class ContactList {
+public class ContactList implements Serializable {
 
     private List<Contact> contacts = new ArrayList<Contact>();
 

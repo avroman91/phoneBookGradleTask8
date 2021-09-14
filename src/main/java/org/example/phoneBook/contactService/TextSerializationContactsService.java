@@ -11,7 +11,8 @@ public class TextSerializationContactsService implements ContactsService {
 
     @Override
     public ContactList getAll() {
-        return load();
+        if (cache == null) cache = load();
+        return cache;
     }
 
     @Override

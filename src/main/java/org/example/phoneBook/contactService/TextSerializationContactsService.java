@@ -6,9 +6,7 @@ import java.io.*;
 import java.util.stream.Collectors;
 
 public class TextSerializationContactsService extends SerializationHelperAbstractClass {
-
-    private File file = new File("Contacts.text");
-
+    
     @Override
     public void save() {
         try(BufferedWriter fileWriter = new BufferedWriter(new FileWriter("Contacts.text"))) {

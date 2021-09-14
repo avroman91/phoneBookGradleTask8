@@ -7,11 +7,9 @@ import java.util.stream.Collectors;
 
 public class ByteSerializationContactsService extends SerializationHelperAbstractClass {
 
-    private File file = new File("Contacts.obj");
-
     @Override
     public void save() {
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(file))) {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("Contacts.obj"))) {
             objectOutputStream.writeObject(cache);
             objectOutputStream.flush();
         } catch (IOException e) {
@@ -23,7 +21,7 @@ public class ByteSerializationContactsService extends SerializationHelperAbstrac
     @Override
     public ContactList load() {
         if (cache == null){
-            try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
+            try(ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Contacts.obj"))) {
                 cache = (ContactList) objectInputStream.readObject();
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

@@ -3,7 +3,7 @@ package org.example.phoneBook.menu;
 import org.example.phoneBook.contactService.ByteSerializationContactsService;
 import org.example.phoneBook.contactService.ContactsService;
 import org.example.phoneBook.contactService.InMemoryContactsService;
-import org.example.phoneBook.contactService.TextSerializationContactsService;
+import org.example.phoneBook.contactService.CSVSerializationContactsService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -59,7 +59,7 @@ public class Menu {
                 case 1:
                     return new InMemoryContactsService();
                 case 2:
-                    return new TextSerializationContactsService();
+                    return new CSVSerializationContactsService();
                 case 3:
                     return new ByteSerializationContactsService();
                 default:

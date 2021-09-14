@@ -10,6 +10,11 @@ public class ByteSerializationContactsService extends SerializationHelperAbstrac
     }
 
     @Override
+    public ContactList findByName(String name) {
+        return null;
+    }
+
+    @Override
     public ContactList load() {
         return null;
     }

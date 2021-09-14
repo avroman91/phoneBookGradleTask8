@@ -1,5 +1,7 @@
 package org.example.phoneBook.contactService;
 
+import org.example.phoneBook.utils.ListUtils;
+
 import java.io.*;
 import java.util.stream.Collectors;
 
@@ -16,6 +18,12 @@ public class TextSerializationContactsService extends SerializationHelperAbstrac
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public ContactList findByName(String name) {
+        ContactList find = load();
+        return ListUtils.filter(find, contact -> contact.getName().contains(name));
     }
 
     @Override

@@ -27,4 +27,5 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
         contacts.add(contact);
     }
 
+
 }

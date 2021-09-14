@@ -47,11 +47,11 @@ public class Menu {
     }
 
     public ContactsService chooseType() {
-        System.out.print("Which method of serialization you would like to use ?: ");
-        System.out.print("Type number of method to choose : ");
-        System.out.println("1 - Keep data in memory (InMemoryContactService); \n " +
-                "2 - Keep data in text file (TextSerializationCotactService); \n " +
-                "3 - Keep data in object file (ObjectSerializationContactService;");
+        System.out.print("Which method of serialization you would like to use ? ");
+        System.out.println("Type number of method to choose : ");
+        System.out.println("1 - Keep data in memory (InMemoryContactService); \n" +
+                "2 - Keep data in text file (TextSerializationCotactService); \n" +
+                "3 - Keep data in object file (ObjectSerializationContactService);");
         while (true) {
             int choise = scanner.nextInt();
             switch (choise) {

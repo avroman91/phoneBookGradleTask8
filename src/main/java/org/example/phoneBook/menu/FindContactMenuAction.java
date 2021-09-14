@@ -1,23 +1,25 @@
 package org.example.phoneBook.menu;
 
 import org.example.phoneBook.contactService.ContactList;
+import org.example.phoneBook.contactService.ContactsService;
 import org.example.phoneBook.contactService.InMemoryContactsService;
 
 import java.util.Scanner;
 
 public class FindContactMenuAction implements MenuAction {
 
-    private InMemoryContactsService inMemoryContactsService;
 
-    public FindContactMenuAction(InMemoryContactsService inMemoryContactsService) {
-        this.inMemoryContactsService = inMemoryContactsService;
+    private ContactsService contactsService;
+
+    public FindContactMenuAction(ContactsService contactsService) {
+        this.contactsService = contactsService;
     }
 
     @Override
     public void doAction(Scanner scan) {
         System.out.print("Please enter contact name or part of the name: ");
         String name = scan.nextLine();
-        ContactList found = inMemoryContactsService.findByName(name);
+        ContactList found = contactsService.findByName(name);
         if (found != null) {
             System.out.println(found);
         } else {

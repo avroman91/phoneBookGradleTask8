@@ -3,15 +3,11 @@ package org.example.phoneBook.menu;
 
 import org.example.phoneBook.contactService.Contact;
 import org.example.phoneBook.contactService.ContactsService;
-import org.example.phoneBook.contactService.InMemoryContactsService;
-import org.example.phoneBook.contactService.TextSerializationContactsService;
 
 import java.util.Scanner;
 
 public class AddContactMenuAction implements MenuAction {
 
-    private InMemoryContactsService inMemoryContactsService;
-    private TextSerializationContactsService textSerializationContactsService;
     private ContactsService contactsService;
 
     public AddContactMenuAction(ContactsService contactsService) {
@@ -20,15 +16,6 @@ public class AddContactMenuAction implements MenuAction {
 
     private int choose = 0;
 
-//    public AddContactMenuAction(InMemoryContactsService inMemoryContactsService) {
-//        this.inMemoryContactsService = inMemoryContactsService;
-//        choose = 1;
-//    }
-//
-//    public AddContactMenuAction(TextSerializationContactsService textSerializationContactsService) {
-//        this.textSerializationContactsService = textSerializationContactsService;
-//        choose = 2;
-//    }
 
     @Override
     public void doAction(Scanner scan) {
@@ -39,19 +26,7 @@ public class AddContactMenuAction implements MenuAction {
         Contact newContact = new Contact(name, phone);
         contactsService.add(newContact);
         contactsService.save(contactsService.getAll());
-//                switch (choose) {
-//                    case 1:
-//                        inMemoryContactsService.add(newContact);
-//                        choose = 0;
-//                        break;
-//                    case 2:
-//                        textSerializationContactsService.add(newContact);
-//                        textSerializationContactsService.save(textSerializationContactsService.getAll());
-//                        choose = 0;
-//                        break;
-//                    default:
-//                        break;
-//                }
+
     }
 
         @Override

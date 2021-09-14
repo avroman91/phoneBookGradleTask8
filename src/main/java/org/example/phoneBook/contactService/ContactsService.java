@@ -13,6 +13,8 @@ public interface ContactsService {
 
     void save(ContactList contacts);
 
+    public ContactList findByName(String name);
+
     ContactList load();
 
 }

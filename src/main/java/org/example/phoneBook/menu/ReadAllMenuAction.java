@@ -1,20 +1,22 @@
 package org.example.phoneBook.menu;
 
+import org.example.phoneBook.contactService.ContactsService;
 import org.example.phoneBook.contactService.InMemoryContactsService;
 
 import java.util.Scanner;
 
 public class ReadAllMenuAction implements MenuAction {
 
-    private InMemoryContactsService inMemoryContactsService;
 
-    public ReadAllMenuAction(InMemoryContactsService inMemoryContactsService) {
-        this.inMemoryContactsService = inMemoryContactsService;
+    private ContactsService contactsService;
+
+    public ReadAllMenuAction(ContactsService contactsService) {
+        this.contactsService = contactsService;
     }
 
     @Override
     public void doAction(Scanner scan) {
-        System.out.println(inMemoryContactsService.getAll());
+        System.out.println(contactsService.getAll());
     }
 
     @Override

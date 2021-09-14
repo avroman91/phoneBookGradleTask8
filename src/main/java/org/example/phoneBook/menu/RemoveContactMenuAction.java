@@ -1,15 +1,17 @@
 package org.example.phoneBook.menu;
 
 
+import org.example.phoneBook.contactService.ContactsService;
 import org.example.phoneBook.contactService.InMemoryContactsService;
 
 import java.util.Scanner;
 
 public class RemoveContactMenuAction implements MenuAction {
-    private InMemoryContactsService inMemoryContactsService;
 
-    public RemoveContactMenuAction(InMemoryContactsService inMemoryContactsService) {
-        this.inMemoryContactsService = inMemoryContactsService;
+    private ContactsService contactsService;
+
+    public RemoveContactMenuAction(ContactsService contactsService) {
+        this.contactsService = contactsService;
     }
 
     @Override
@@ -17,7 +19,7 @@ public class RemoveContactMenuAction implements MenuAction {
         System.out.print("Please enter index of contact which you want to delete: ");
         int index = scan.nextInt() - 1;
         scan.nextLine();
-        inMemoryContactsService.remove(index);
+        contactsService.remove(index);
     }
 
     @Override
